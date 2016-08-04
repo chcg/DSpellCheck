@@ -15,6 +15,13 @@ Following main features:
 - Support for downloading and removing Hunspell dictionaries through user friendly GUI interface
 - Ability to quickly change current language through context menu or DSpellCheck sub-menu.
 
+Build Status
+------------
+
+AppVeyor `VS2013` and `VS2015`  [![Build status](https://ci.appveyor.com/api/projects/status/6bafaogqnaykd1tb?svg=true)](https://ci.appveyor.com/project/chcg/dspellcheck)
+
+
+
 v1.2.14.2
 * Fix plugin's sudden demise after user executes "Find in Files"
 
