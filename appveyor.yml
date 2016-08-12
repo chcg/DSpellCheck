@@ -15,7 +15,7 @@ platform:
     - Win32
 
 configuration:
-#    - Release
+    - Release
     - Debug
 
 install:
@@ -24,7 +24,7 @@ install:
     - call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %archi%
 
 build:
-#    parallel: true                  # enable MSBuild parallel builds
+    parallel: true                  # enable MSBuild parallel builds
     verbosity: minimal
 
 before_build:
@@ -57,21 +57,21 @@ build_script:
 after_build:
     - cd c:\projects\dspellcheck\_build\
     - ps: >-
-        $hexediterFileName = "DSpellCheck.$env:PLATFORM.$env:CONFIGURATION.$env:PLATFORMTOOLSET.dll"
+        $dspellcheckBinFileName = "DSpellCheck.$env:PLATFORM.$env:CONFIGURATION.$env:PLATFORMTOOLSET.dll"
 
         if ($env:PLATFORM -eq "x64" -and $env:CONFIGURATION -eq "Release") {
-            Push-AppveyorArtifact "x64\Release\DSpellCheck.dll" -FileName "$hexediterFileName"
+            Push-AppveyorArtifact "x64\Release\DSpellCheck.dll" -FileName "$dspellcheckBinFileName"
         }
 
         if ($env:PLATFORM -eq "x64" -and $env:CONFIGURATION -eq "Debug") {
-            Push-AppveyorArtifact "x64\Debug\DSpellCheck.dll" -FileName "$hexediterFileName"
+            Push-AppveyorArtifact "x64\Debug\DSpellCheck.dll" -FileName "$dspellcheckBinFileName"
         }
 
         if ($env:PLATFORM -eq "Win32" -and $env:CONFIGURATION -eq "Release") {
-            Push-AppveyorArtifact "Release\DSpellCheck.dll" -FileName "$hexediterFileName"
+            Push-AppveyorArtifact "Release\DSpellCheck.dll" -FileName "$dspellcheckBinFileName"
         }
 
         if ($env:PLATFORM -eq "Win32" -and $env:CONFIGURATION -eq "Debug") {
-            Push-AppveyorArtifact "Debug\DSpellCheck.dll" -FileName "$hexediterFileName"
+            Push-AppveyorArtifact "Debug\DSpellCheck.dll" -FileName "$dspellcheckBinFileName"
         }
 
